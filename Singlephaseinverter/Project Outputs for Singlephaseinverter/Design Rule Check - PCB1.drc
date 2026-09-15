@@ -1,0 +1,80 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc
+Date     : 04/07/2026
+Time     : 23:20:37
+
+WARNING: Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again
+   Polygon named: NONET_L03_P023 In net +12 On LOW POWER
+   Polygon named: NONET_L03_P022 In net +12 On LOW POWER
+   Polygon named: NONET_L03_P026 In net +12 On LOW POWER
+   Polygon named: NONET_L01_P021 In net AC_NEUTRAL On POWER
+   Polygon named: NONET_L01_P014 In net +380V On POWER
+   Polygon named: NONET_L01_P020 In net AC_LINE On POWER
+   Polygon named: NONET_L02_P000 In net PGND On PGND/SGND
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net +380V Between Pad P3-1(5.08mm,100.123mm) on POWER And Pad W1-5_6(11.116mm,100.106mm) on POWER 
+   Violation between Un-Routed Net Constraint: Net NetD8_2 Between Pad R14-2(73.914mm,65.811mm) on LOW POWER And Track (73.914mm,65.811mm)(77.318mm,65.811mm) on POWER 
+   Violation between Un-Routed Net Constraint: Net NetR9_1 Between Pad R9-1(84.244mm,127.254mm) on POWER And Pad R19-2(86.317mm,127.254mm) on POWER 
+   Violation between Un-Routed Net Constraint: Net NetR3_1 Between Pad R3-1(33.782mm,127.254mm) on POWER And Pad R9-2(59.944mm,127.254mm) on POWER 
+   Violation between Un-Routed Net Constraint: Net +380V Between Pad W1-5_14(19.016mm,100.106mm) on POWER And Pad W1-4(25.066mm,99.473mm) on POWER 
+   Violation between Un-Routed Net Constraint: Net NetD4_1 Between Track (62.738mm,25.654mm)(67.183mm,25.654mm) on LOW POWER And Track (61.663mm,25.595mm)(62.75mm,25.595mm) on POWER 
+Rule Violations :6
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L01_P014) on POWER 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L01_P020) on POWER 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L01_P021) on POWER 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L02_P000) on PGND/SGND 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L03_P022) on LOW POWER 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L03_P023) on LOW POWER 
+   Violation between Modified Polygon: Polygon Shelved  (NONET_L03_P026) on LOW POWER 
+Rule Violations :7
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=1.524mm) (Preferred=0.381mm) (All)
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.2mm) (Max=6mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.18mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (62.738mm,25.654mm)(67.183mm,25.654mm) on LOW POWER 
+   Violation between Net Antennae: Track (73.914mm,65.811mm)(77.318mm,65.811mm) on POWER 
+Rule Violations :2
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+   Violation between Height Constraint: Small Component H1-Heatsink (44.704mm,50.165mm) on POWER Actual Height = 35.812mm
+   Violation between Height Constraint: Small Component H4-Heatsink (92.202mm,48.768mm) on POWER Actual Height = 35.812mm
+   Violation between Height Constraint: SMT Small Component C5-470uF/450V (88.392mm,107.061mm) on POWER Actual Height = 53.34mm
+   Violation between Height Constraint: SMT Small Component C6-470uF/450V (51.435mm,107.061mm) on POWER Actual Height = 53.34mm
+   Violation between Height Constraint: SMT Small Component V1-MOV (18.288mm,109.855mm) on POWER Actual Height = 25.721mm
+Rule Violations :5
+
+
+Violations Detected : 20
+Waived Violations : 0
+Time Elapsed        : 00:00:00

@@ -1,0 +1,12 @@
+# Altium Designer auto-backups, logs and caches
+History/
+Project Logs for */
+__Previews/
+*.PrjPcbStructure
+~$*
+.~lock.*
+*.SchDocPreview
+*.PcbDocPreview
+
+# Stray outputs copied from the current-sensor project
+Singlephaseinverter/Project Outputs for CurrentSensor_PCB/

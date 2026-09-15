@@ -1,0 +1,433 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">04/07/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">23:20:37</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc" class="file"><acronym title="C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc">C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">7</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">20</td></tr>
+</table>
+</td>
+</table><a name="IDJ1G32Q4KL5QEC4QL4NC12ZXPNJ0O0SSK4ZEWRKO1S10501KWV5GH"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXQAIAMNBTFSYOQNUXKENE51SPM1QKNPCBNXPQPVLS2P5T0ER3WO">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</a></td>
+<td class="column2">7</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">7</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDST3ZWRONN15YBGT5FQB1ZP4CGJY5RUBTED4HR1CG2KWDVAG43J5D">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVIMNXGAPOLMTLWZQTVYLTENV4CIT1XQJVAY4MWOV5MIYUG1C5YVI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXZGTG4M14H2WPFKNQJQYQ1ILHHR4YAKB1QBKXMI3DC4RWMNKEM">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2V1HLGE2QBGKPX55VQL41HFOYHLHVC4ZWEEFJEIJFJ5AMWYZBJIK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVY0P2IGVHQWIFTMR3MWH1CPB3GEW2IY1ZVLLPRPYO15AJNNHNPG">Width Constraint (Min=0.254mm) (Max=1.524mm) (Preferred=0.381mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0GMI05HHPRZTDS3IINTNF5JZSLVLP1OMOHZ1AXFX1QZTWIPMYCWH">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMA4SRUUM4LK3CTGZPI2YMQQJRJ2RZ4IEEXBVOMJDZPXGL5G4HIZB">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY1PBH4YPR3TFLSXBTKO4JNAQEH4AB5CNND0PNHH2U5PPKMH1KC4D">Hole Size Constraint (Min=0.2mm) (Max=6mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTF4ZC0XT0QJNHZNNJKF255SCPLN4GQYRIJY10LLD30DMUSLWXNDF">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYAUX5I3EWHTRLFS0R1A5SLV3NK0RPMLIPTYL5SCOIFDWT4VDCR2P">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIJ1DEIUU5WJQDU1RRXYK3DM03LW5UQUFDV2AJLJ0V3BIJ3FY1DTM">Silk To Solder Mask (Clearance=0.18mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGHZ4THRSVV1PCSUQBBRVK4D4I4YOZFHK5NZ50OCOLUN2GGVP5AI">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDT4OH2DILTF3BME2305SKPURBCWVPAAQIEK4LMDNT3UEXTJ3VIN">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSXSQYOCEKZHXLXE44LRJEECHHG4HO0QCV30MQFCDSVBH5KRAHTOH">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">20</td>
+</tr>
+</table><br><a name="IDHYJJ0GBZKLOKH4RJNYGUFAJOFOKPTMSI4M0IVKPGAWO5BWK4XBVP"><h2>Warnings</h2></a><a name="IDXQAIAMNBTFSYOQNUXKENE51SPM1QKNPCBNXPQPVLS2P5T0ER3WO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: NONET_L03_P023 In net +12 On LOW POWER</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Polygon named: NONET_L03_P022 In net +12 On LOW POWER</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: NONET_L03_P026 In net +12 On LOW POWER</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Polygon named: NONET_L01_P021 In net AC_NEUTRAL On POWER</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: NONET_L01_P014 In net +380V On POWER</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Polygon named: NONET_L01_P020 In net AC_LINE On POWER</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: NONET_L02_P000 In net PGND On PGND/SGND</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDXZGTG4M14H2WPFKNQJQYQ1ILHHR4YAKB1QBKXMI3DC4RWMNKEM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1053.661mil|Location2.X=1348.401mil|Location1.Y=4095.512mil|Location2.Y=4178.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1053.661mil|Location2.X=1348.401mil|Location1.Y=4095.512mil|Location2.Y=4178.189mil|Absolute=True">Un-Routed Net Constraint: Net +380V Between Pad P3-1(5.08mm,100.123mm) on POWER And Pad W1-5_6(11.116mm,100.106mm) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3705mil|Location2.X=3905mil|Location1.Y=2685.984mil|Location2.Y=2885.984mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3705mil|Location2.X=3905mil|Location1.Y=2685.984mil|Location2.Y=2885.984mil|Absolute=True">Un-Routed Net Constraint: Net NetD8_2 Between Pad R14-2(73.914mm,65.811mm) on LOW POWER And Track (73.914mm,65.811mm)(77.318mm,65.811mm) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4186.595mil|Location2.X=4318.405mil|Location1.Y=5179.902mil|Location2.Y=5230.098mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4186.595mil|Location2.X=4318.405mil|Location1.Y=5179.902mil|Location2.Y=5230.098mil|Absolute=True">Un-Routed Net Constraint: Net NetR9_1 Between Pad R9-1(84.244mm,127.254mm) on POWER And Pad R19-2(86.317mm,127.254mm) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.902mil|Location2.X=3280.098mil|Location1.Y=5179.902mil|Location2.Y=5230.098mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.902mil|Location2.X=3280.098mil|Location1.Y=5179.902mil|Location2.Y=5230.098mil|Absolute=True">Un-Routed Net Constraint: Net NetR3_1 Between Pad R3-1(33.782mm,127.254mm) on POWER And Pad R9-2(59.944mm,127.254mm) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1627.898mil|Location2.X=2059.016mil|Location1.Y=4022.677mil|Location2.Y=4199.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1627.898mil|Location2.X=2059.016mil|Location1.Y=4022.677mil|Location2.Y=4199.842mil|Absolute=True">Un-Routed Net Constraint: Net +380V Between Pad W1-5_14(19.016mm,100.106mm) on POWER And Pad W1-4(25.066mm,99.473mm) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3265mil|Location2.X=3465.472mil|Location1.Y=1105mil|Location2.Y=1302.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3265mil|Location2.X=3465.472mil|Location1.Y=1105mil|Location2.Y=1302.677mil|Absolute=True">Un-Routed Net Constraint: Net NetD4_1 Between Track (62.738mm,25.654mm)(67.183mm,25.654mm) on LOW POWER And Track (61.663mm,25.595mm)(62.75mm,25.595mm) on POWER </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID2V1HLGE2QBGKPX55VQL41HFOYHLHVC4ZWEEFJEIJFJ5AMWYZBJIK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Modified Polygon (Allow modified: No), (Allow shelved: No)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=920mil|Location2.X=4350mil|Location1.Y=220mil|Location2.Y=5370mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=920mil|Location2.X=4350mil|Location1.Y=220mil|Location2.Y=5370mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L01_P014) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2875mil|Location2.X=6715mil|Location1.Y=1720mil|Location2.Y=5370mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2875mil|Location2.X=6715mil|Location1.Y=1720mil|Location2.Y=5370mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L01_P020) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500mil|Location2.X=7310mil|Location1.Y=225mil|Location2.Y=5370mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500mil|Location2.X=7310mil|Location1.Y=225mil|Location2.Y=5370mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L01_P021) on POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=925mil|Location2.X=6103.975mil|Location1.Y=273.332mil|Location2.Y=5370mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=925mil|Location2.X=6103.975mil|Location1.Y=273.332mil|Location2.Y=5370mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L02_P000) on PGND/SGND </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=920mil|Location2.X=1860mil|Location1.Y=545mil|Location2.Y=1720mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=920mil|Location2.X=1860mil|Location1.Y=545mil|Location2.Y=1720mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L03_P022) on LOW POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195mil|Location2.X=3045mil|Location1.Y=580mil|Location2.Y=1130mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195mil|Location2.X=3045mil|Location1.Y=580mil|Location2.Y=1130mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L03_P023) on LOW POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835mil|Location2.X=4815mil|Location1.Y=420mil|Location2.Y=1145mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835mil|Location2.X=4815mil|Location1.Y=420mil|Location2.Y=1145mil|Absolute=True">Modified Polygon: Polygon Shelved  (NONET_L03_P026) on LOW POWER </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDDT4OH2DILTF3BME2305SKPURBCWVPAAQIEK4LMDNT3UEXTJ3VIN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.5mil|Location2.X=3397.743mil|Location1.Y=1181.5mil|Location2.Y=1270.364mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.5mil|Location2.X=3397.743mil|Location1.Y=1181.5mil|Location2.Y=1270.364mil|Absolute=True">Net Antennae: Track (62.738mm,25.654mm)(67.183mm,25.654mm) on LOW POWER </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3776.5mil|Location2.X=3843.628mil|Location1.Y=2757.484mil|Location2.Y=2864.733mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3776.5mil|Location2.X=3843.628mil|Location1.Y=2757.484mil|Location2.Y=2864.733mil|Absolute=True">Net Antennae: Track (73.914mm,65.811mm)(77.318mm,65.811mm) on POWER </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSXSQYOCEKZHXLXE44LRJEECHHG4HO0QCV30MQFCDSVBH5KRAHTOH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2654mil|Location2.X=2656mil|Location1.Y=2169mil|Location2.Y=2171mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2654mil|Location2.X=2656mil|Location1.Y=2169mil|Location2.Y=2171mil|Absolute=True">Height Constraint: Small Component H1-Heatsink (44.704mm,50.165mm) on POWER Actual Height = 35.812mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524mil|Location2.X=4526mil|Location1.Y=2114mil|Location2.Y=2116mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524mil|Location2.X=4526mil|Location1.Y=2114mil|Location2.Y=2116mil|Absolute=True">Height Constraint: Small Component H4-Heatsink (92.202mm,48.768mm) on POWER Actual Height = 35.812mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4374mil|Location2.X=4376mil|Location1.Y=4409mil|Location2.Y=4411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4374mil|Location2.X=4376mil|Location1.Y=4409mil|Location2.Y=4411mil|Absolute=True">Height Constraint: SMT Small Component C5-470uF/450V (88.392mm,107.061mm) on POWER Actual Height = 53.34mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919mil|Location2.X=2921mil|Location1.Y=4409mil|Location2.Y=4411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919mil|Location2.X=2921mil|Location1.Y=4409mil|Location2.Y=4411mil|Absolute=True">Height Constraint: SMT Small Component C6-470uF/450V (51.435mm,107.061mm) on POWER Actual Height = 53.34mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614mil|Location2.X=1616mil|Location1.Y=4519mil|Location2.Y=4521mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\QVIC\OneDrive\Desktop\IITROPARDESIGN\SinglePhaseInverter\Singlephaseinverter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614mil|Location2.X=1616mil|Location1.Y=4519mil|Location2.Y=4521mil|Absolute=True">Height Constraint: SMT Small Component V1-MOV (18.288mm,109.855mm) on POWER Actual Height = 25.721mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
