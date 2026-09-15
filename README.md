@@ -2,7 +2,7 @@
 
 A **380 V DC → single-phase AC** full-bridge inverter power board designed in Altium Designer. It combines a 650 V MOSFET H-bridge, bootstrap gate drive, an LC output filter and a complete sensing suite (DC bus voltage and current, AC output voltage and current, heatsink temperature). Everything is broken out to header connectors for an external STM32 controller.
 
-> Designed at **IIT Ropar** by **Afraaz Khan**, under the guidance of **Prof. Saifullah Payami**.
+> Designed at **IIT Ropar** by **Afraaz Khan**, **Zeeshan** and **Kratika**, under the guidance of **Prof. Saifullah Payami**.
 
 ---
 
@@ -180,3 +180,12 @@ Singlephaseinverter/
 - [ ] Dead-time and switching-loss optimisation
 - [ ] THD measurement of the filtered output
 - [ ] Thermal characterisation under load
+
+## Team
+
+| Name | Role |
+|---|---|
+| **Afraaz Khan** | Hardware design |
+| **Zeeshan** | Hardware design |
+| **Kratika** | Hardware design |
+| **Prof. Saifullah Payami** | Faculty guide, IIT Ropar |
